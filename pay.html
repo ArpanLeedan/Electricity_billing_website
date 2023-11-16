@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<body style="background-color: #90ee90;">
+      <form method="POST" action="/Pay">
+      <label for="Card No">Card No:</label>
+        <input type="text" id="Card No" name="Card No" required><br>
+      <label for="Date">Date:</label>
+        <input type="text" id="Date" name="Date" required><br>
+      <label for="Cvv">Cvv:</label>
+        <input type="text" id="Cvv" name="Cvv" required><br>
+      <label for="otp">Otp:</label>
+        <input type="text" id="otp" name="otp" required><br>
+          <p>OR</p>
+          <label for="GPay">Gpay Number:</label>
+        <input type="text" id="Gpay" name="Gpay" required><br>
+        </form>
+        <a href="{{ url_for('payment_success') }}">pay</a>
+</body>
+</html>
