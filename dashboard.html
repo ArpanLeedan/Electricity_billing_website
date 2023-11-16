@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body style="background-color: #90ee90;">
+    <h1>Welcome to the Dashboard</h1>
+    <p>Consumer ID: {{ consumer_id }}</p>
+    <p>Name: {{ name }}</p>
+    <!-- Link to Bill Generation page with query parameters -->
+    <a href="{{ url_for('generate_bill', consumer_id=consumer_id) }}"style="font-size: 16px;">Generate Bill</a>
+    <p></p>
+    <a href="{{ url_for('Ac_meter_application', consumer_id=consumer_id) }}"style="font-size: 16px;">Ac_meter_application</a>
+    <p></p>
+    <a href="{{ url_for('Meter_surrender',consumer_id=consumer_id) }}"style="font-size: 16px;">Meter Surrender</a>
+</body>
+</html>
+
