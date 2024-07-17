@@ -112,7 +112,7 @@ def generate_bill():
                 cursor.execute(update_query)
                 connection.commit()
 
-                query = "SELECT CONSUMER_ID, unit_1m, price_present FROM Bill where consumer_id".format(consumer_id)
+                query = "SELECT CONSUMER_ID, unit_1m, price_present FROM Bill where consumer_id='{}'".format(consumer_id)
                 cursor.execute(query)
                 consumers = list(cursor.fetchall())
                 l = ["present month", "last month", "2nd last month"]
