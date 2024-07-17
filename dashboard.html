@@ -4,17 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        header, footer {
+            background-color: #007bff;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 5px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+        .link {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .link:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-<body style="background-color: #90ee90;">
-    <h1>Welcome to the Dashboard</h1>
-    <p>Consumer ID: {{ consumer_id }}</p>
-    <p>Name: {{ name }}</p>
-    <!-- Link to Bill Generation page with query parameters -->
-    <a href="{{ url_for('generate_bill', consumer_id=consumer_id) }}"style="font-size: 16px;">Generate Bill</a>
-    <p></p>
-    <a href="{{ url_for('Ac_meter_application', consumer_id=consumer_id) }}"style="font-size: 16px;">Ac_meter_application</a>
-    <p></p>
-    <a href="{{ url_for('Meter_surrender',consumer_id=consumer_id) }}"style="font-size: 16px;">Meter Surrender</a>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <h1>Welcome to the Dashboard</h1>
+        <p>Consumer ID: {{ consumer_id }}</p>
+        <p>Name: {{ name }}</p>
+        <!-- Links to various pages -->
+        <a href="{{ url_for('generate_bill', consumer_id=consumer_id) }}" class="link">Generate Bill</a>
+        <a href="{{ url_for('Ac_meter_application', consumer_id=consumer_id) }}" class="link">AC Meter Application</a>
+        <a href="{{ url_for('Meter_surrender', consumer_id=consumer_id) }}" class="link">Meter Surrender</a>
+    </div>
+
+    <footer>
+        &copy; 2023 Electricity Billing System. All rights reserved.
+    </footer>
 </body>
 </html>
-
