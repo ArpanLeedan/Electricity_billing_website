@@ -2,10 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ac Meter Application</title>
+    <title>AC Meter Application</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                window.location.href = "/login";
+            }, 4000);
+        });
+    </script>
 </head>
-<body style="background-color: #90ee90;">
-    <p>Applied Succesfully</p>
-    <p>Further payment and details will be relayed by sms</p>
+<body>
+    <div class="container">
+        <h1>AC Meter Application</h1>
+        <p>Applied Successfully</p>
+        <p>Further payment and details will be relayed by SMS.</p>
+    </div>
 </body>
 </html>
