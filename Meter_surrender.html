@@ -2,10 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Approval</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        header, footer {
+            background-color: #007bff;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 5px;
+            position: fixed;
+        }
+        header {
+            top: 0;
+        }
+        footer {
+            bottom: 0;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, setting up redirect');
+            setTimeout(function() {
+                console.log('Redirecting to login page');
+                window.location.href = "/login"; // Replace with your actual login page URL
+            }, 4000); // 5000 milliseconds = 5 seconds
+        });
+    </script>
 </head>
-<body style="background-color: #90ee90;">
-    <p>If any amount is to refunded or required will be contacted via sms</p>
-    <p>Thank you for using our services</p>
+<body>
+    <header>
+        <h1>Admin Approval</h1>
+    </header>
+
+    <div class="container">
+        <p>If any amount is to be refunded or required, you will be contacted via SMS.</p>
+        <p>Thank you for using our services.</p>
+    </div>
+
+    <footer>
+        &copy; 2023 Electricity Billing System. All rights reserved.
+    </footer>
 </body>
 </html>
