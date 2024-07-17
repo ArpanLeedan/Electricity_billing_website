@@ -4,17 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill Generation</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0;
+        }
+        .consumer-info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .pay-link {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .pay-link a {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .pay-link a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-<body style="background-color: #90ee90;">
-    <h1>Bill Generation</h1>
-    <form method="POST" action="/generate_bill">
-    {% for consumer in consumers %}
-        <h2>Consumer ID: {{ consumer[0]}}</h2>
-        <p>Current Usage: {{ consumer[1] }}</p>
-        <p>Bill Amount: {{ consumer[2] }}</p>
-        <a href="{{ url_for('pay') }}">pay</a>
-        <hr>
-    {% endfor %}
-    </form>
+<body>
+    <div class="container">
+        <h1>Bill Generation</h1>
+        <form method="POST" action="/generate_bill">
+            {% for consumer in consumers %}
+            <div class="consumer-info">
+                <h2>Consumer ID: {{ consumer[0] }}</h2>
+                <p>Current Usage: {{ consumer[1] }}</p>
+                <p>Bill Amount: {{ consumer[2] }}</p>
+                <div class="pay-link">
+                    <a href="{{ url_for('pay') }}">Pay Now</a>
+                </div>
+            </div>
+            {% endfor %}
+        </form>
+    </div>
 </body>
 </html>
