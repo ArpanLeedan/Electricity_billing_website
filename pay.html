@@ -2,22 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
+    <style>
+        body {
+            background-color: #90ee90;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .success-container {
+            display: none;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+            text-align: left;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            margin: 15px 0;
+        }
+        .pay-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .pay-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const payButton = document.querySelector('.pay-button');
+            const successContainer = document.querySelector('.success-container');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Simulate payment process (in real scenario, this would be an AJAX request)
+                setTimeout(function() {
+                    // Hide the form
+                    form.style.display = 'none';
+                    // Show the success message
+                    successContainer.style.display = 'block';
+                }, 2000); // Simulating 2 seconds delay for payment process
+            });
+        });
+    </script>
 </head>
-<body style="background-color: #90ee90;">
-      <form method="POST" action="/Pay">
-      <label for="Card No">Card No:</label>
-        <input type="text" id="Card No" name="Card No" required><br>
-      <label for="Date">Date:</label>
-        <input type="text" id="Date" name="Date" required><br>
-      <label for="Cvv">Cvv:</label>
-        <input type="text" id="Cvv" name="Cvv" required><br>
-      <label for="otp">Otp:</label>
-        <input type="text" id="otp" name="otp" required><br>
-          <p>OR</p>
-          <label for="GPay">Gpay Number:</label>
-        <input type="text" id="Gpay" name="Gpay" required><br>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <form method="POST" action="/Pay">
+            <label for="CardNo">Card No:</label>
+            <input type="text" id="CardNo" name="CardNo" required><br>
+
+            <label for="Date">Date:</label>
+            <input type="text" id="Date" name="Date" required><br>
+
+            <label for="Cvv">CVV:</label>
+            <input type="text" id="Cvv" name="Cvv" required><br>
+
+            <label for="otp">OTP:</label>
+            <input type="text" id="otp" name="otp" required><br>
+
+            <button type="submit" class="pay-button">Pay Now</button>
         </form>
-        <a href="{{ url_for('payment_success') }}">pay</a>
+
+        <div class="success-container">
+            <h1>Payment Successful!</h1>
+            <p>Your payment has been processed successfully.</p>
+            <!-- Link to return to dashboard or any other action -->
+            <a href="/">Return to Dashboard</a>
+        </div>
+    </div>
 </body>
 </html>
